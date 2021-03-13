@@ -1,0 +1,99 @@
+<div class="container ">
+  <div class="page-header ">
+    <h4></h4>      
+  </div>    
+</div>
+<br><br>
+<div class="container">
+<div class="row">
+  <div class="col-sm list-action-button">
+  <button type="button"  class="btn btn-success float-right" (click)="addNewClick()">Add New</button>
+  <h5>User Records</h5>
+  </div>
+</div>
+</div> <br><br>
+<div class="container">
+  <table class="table table-bordered text-center">
+    <th>Avatar</th>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Experience</th>
+    <th></th>
+  
+    <tr *ngFor="let user of userArr">
+      <td><img src="assets/images/1.jpg"class ="rounded-circle" alt="pic" width="30" height="30"></td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.experience}} year</td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="ramoveUser(user.name)">Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+<div *ngIf = "popup" >
+  <div class="row">
+    <div class="col-sm-4" ></div>
+    <div class="col-sm-4" >
+      <div class="container groove"> <br>
+    
+        <h4 style="text-align: center;">Add New Record</h4> <br>
+        <form>
+          <div class="row">
+            <label class="control-label col-sm-4" for="email">Email:</label>
+            <div class="col-sm-8">
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"[(ngModel)] = "email">
+            </div>
+          </div> <br>
+          <div class="row">
+            <label class="control-label col-sm-4" for="nam">Full Name</label>
+            <div class="col-sm-8">          
+              <input type="Name" class="form-control" id="nam" placeholder="Enter Full Name" name="name"[(ngModel)] = "name">
+            </div>
+          </div> <br>
+          <div class="row">
+            <label class="control-label col-sm-4" for="doj">Date of Joining</label>
+            <div class="col-sm-4">          
+              <input type="date" class="form-control" id="doj" placeholder="Date of Joining" name="name"[(ngModel)] = "startdate">
+            </div>
+          </div> <br>
+          <div class="row">
+            <label class="control-label col-sm-4" for="dol">Date of Leaving</label>
+            <div class="col-sm-4">          
+              <input type="date" class="form-control" id="dol" placeholder="Date of Leaving" name="name"[(ngModel)] = "enddate">
+            </div>
+            <div class="col-sm-4">
+              <div class="checkbox">
+                <label><input type="checkbox"> Still Working</label>
+              </div>
+            </div>
+          </div> <br>
+          <div class="row">
+            <div class="control-label col-sm-4">
+              <p>Upload image</p>
+            </div>
+            <div class="col-sm-8">
+               <label><i class="fa fa-upload btn-space" aria-hidden="true"></i> <input type="file" id="" name="filename2"></label>
+            </div>
+          </div> <br>
+          <div class="form-group text-center ">
+            <div class="col-sm-offset-3">
+              <button type="button" class="btn btn-success btn-space"(click) =onclick()>Save</button>
+              <button type="button" class="btn btn-danger"(click) =onCloseClick()>close</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-4" ></div>
+  </div>
+  
+  
+  
+</div>
+
+
+<router-outlet></router-outlet>
